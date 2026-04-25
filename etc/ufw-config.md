@@ -30,3 +30,5 @@ To                         Action      From
 22/tcp (v6)                LIMIT IN    Anywhere (v6)             
 80/tcp (v6)                ALLOW IN    Anywhere (v6)             
 443/tcp (v6)               ALLOW IN    Anywhere (v6) 
+
+## Same process for other services, such as chrony (uninstall ntp first!)
