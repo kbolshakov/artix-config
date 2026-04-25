@@ -1,0 +1,13 @@
+[Trigger]
+Type = Package
+Operation = Install
+Operation = Upgrade
+Target = linux*
+Target = linux-lts*
+Target = linux-zen*
+Target = mkinitcpio
+
+[Action]
+Description = Sync kernels to ESP for Limine boot
+When = PostTransaction
+Exec = /usr/local/bin/update-esp-kernels

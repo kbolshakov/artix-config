@@ -1,0 +1,25 @@
+#!/bin/bash
+set -e
+
+ESP="/boot/efi/EFI/Linux"
+
+BLUE="\033[1;34m"
+RESET="\033[0m"
+
+echo -e "${BLUE}[ESP SYNC] Updating kernels in $ESP${RESET}"
+
+mkdir -p "$ESP"
+
+rsync -av --delete \
+    /boot/vmlinuz-linux \
+    /boot/vmlinuz-linux-lts \
+    /boot/vmlinuz-linux-zen \
+    /boot/initramfs-linux.img \
+    /boot/initramfs-linux-lts.img \
+    /boot/initramfs-linux-zen.img \
+    "$ESP/"
+
+[[ -f /boot/amd-ucode.img ]] && cp -v /boot/amd-ucode.img "$ESP/"
+[[ -f /boot/intel-ucode.img ]] && cp -v /boot/intel-ucode.img "$ESP/"
+
+echo -e "${BLUE}[ESP SYNC] Done${RESET}"
