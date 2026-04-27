@@ -1,0 +1,18 @@
+[Desktop Entry]
+DefaultProfile=Profile 1.profile
+
+[General]
+ConfigVersion=1
+
+[SplitView]
+SplitDragHandleSize=SplitDragHandleMedium
+
+[TabBar]
+CloseTabButton=None
+NewTabButton=true
+SearchTabsButton=HideSearchTabsButton
+TabBarPosition=Bottom
+TabBarVisibility=AlwaysShowTabBar
+
+[UiSettings]
+ColorScheme=
