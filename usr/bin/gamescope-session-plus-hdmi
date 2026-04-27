@@ -1,0 +1,61 @@
+#!/bin/sh
+
+declare -r CLIENT=$1
+
+# Script to start the session used by Valve with minor tweaks for ChimeraOS.
+
+# This improves PS4 controller behaviour, fixing a problem with Start/Pause (OPTIONS) button
+export STEAM_INPUT_PERSISTENT=1
+
+# Window managers sets this to wayland but apps using Gamescope must use x11
+export XDG_SESSION_TYPE=x11
+
+# Update the enviroment with DESKTOP_SESSION and all XDG variables
+dbus-update-activation-environment           DESKTOP_SESSION `env | grep ^XDG_ | cut -d = -f 1`
+
+# This makes it so that xdg-desktop-portal doesn't find any portal implementations and doesn't start them and makes
+# them crash/exit because the dbus env has no DISPLAY. In turn this causes dbus calls to the portal which don't rely
+# on implementations to hang (such as SDL talking to the real time portal)
+export XDG_DESKTOP_PORTAL_DIR=""
+
+# Add explicit monitor for Gamescope; processed in /usr/share/gamescope-session-plus/gamescope-session-plus
+echo "USR_MONITOR=HDMI-A-1" > /tmp/gamescope-usr-monitor
+
+# Remove these as they prevent gamescope-session-plus from starting correctly
+unset DISPLAY XAUTHORITY
+
+# If this shell script is killed then stop gamescope-session-plus
+trap "kill $!" HUP INT TERM
+
+# GPU/DRM Initialization Wait
+# =============================
+# Purpose: Ensure GPU driver and DRM subsystem are fully initialized
+#          before launching Gamescope. Prevents "flip error: Invalid argument"
+#          failures on fresh SDDM sessions.
+#
+# Rationale: The /dev/dri/card* device nodes appear very quickly, but the
+#           underlying driver (Mesa, i915, amdgpu, etc.) needs additional
+#           time to initialize clocks, firmware, and display mode setting.
+#           A 2-second delay after device readiness provides a reliable
+#           initialization window across Intel, AMD, and NVIDIA GPUs.
+#
+# Tested on: Ryzen 9700X + AMD RX7900 XTX (AsRock B850M Steel Legend WiFi board)
+# Estimated time: 1-3 seconds (much faster than hardcoded sleep 10)
+for i in {1..10}; do
+    # Find the primary GPU device (the one with a connected display)
+    GPU_DEVICE=$(ls -1 /dev/dri/card* 2>/dev/null | head -1)
+    
+    if [ -n "$GPU_DEVICE" ] && [ -c "$GPU_DEVICE" ] && [ -r "$GPU_DEVICE" ] && [ -w "$GPU_DEVICE" ]; then
+        sleep 3  # Give driver time to fully initialize even after device appears
+        echo "GPU/DRM device ready ($GPU_DEVICE), starting Gamescope..."
+        break
+    fi
+    sleep 0.1
+done
+
+# Start gamescope-session-plus and wait
+/usr/share/gamescope-session-plus/gamescope-session-plus "$CLIENT"
+wait
+
+# Unset XDG_DESKTOP_PORTAL_DIR environment to allow desktop portals to work again.
+unset XDG_DESKTOP_PORTAL_DIR
