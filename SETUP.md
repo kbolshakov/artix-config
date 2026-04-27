@@ -4,7 +4,7 @@
 This used Calamares, should be self-explanatory.
 
 ## 2. Clone repo
-Refer to `GIT-CMDS.md` for relevant commands.
+Refer to [GIT-CMDS.md](GIT-CMDS.md) for relevant commands.
 
 ## 3. Install packages from pkglist
 Explicitly remove NTP and install chrony, cannot have both at the same time.
@@ -141,8 +141,8 @@ This only needs one file that saves the important preferences, including fonts:
 `.config/BraveSoftware/Brave-Browser/Default/Preferences`
 
 ### (3) Steam and Gamescope
-There is a whole file dedicated to this:
-`STEAM.md`
+There is a whole file dedicated to this.
+See [STEAM.md](STEAM.md).
 Can be done at any time, once the core system and services are ready.
 
 ## 7. Future: TBD
