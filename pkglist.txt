@@ -3,6 +3,7 @@ acpid-openrc
 alsa-firmware
 amd-ucode
 ark
+artix-archlinux-support
 artix-branding-base
 artix-gtk-presets
 artix-icons
@@ -13,6 +14,7 @@ avahi-openrc
 b43-fwcutter
 base
 base-devel
+bat
 bluedevil
 bluez-openrc
 brave-bin
@@ -46,6 +48,9 @@ ffmpegthumbs
 firefox
 fish
 fzf
+game-devices-udev
+gamescope
+gamescope-session-steam-sk-git
 git
 gst-libav
 gst-plugins-bad
@@ -56,6 +61,7 @@ haveged-openrc
 hiredis
 inetutils
 intel-ucode
+inter-font
 inxi
 iptables
 jfsutils
@@ -108,6 +114,7 @@ lsb-release
 lvm2-openrc
 man-db
 man-pages
+mangohud
 mdadm-openrc
 memtest86+
 mesa
@@ -133,6 +140,7 @@ okular
 openrc-settingsd
 openssh-openrc
 os-prober
+otf-firamono-nerd
 oxygen
 oxygen-sounds
 pipewire-openrc
@@ -165,6 +173,8 @@ s-nail
 sddm-kcm
 sddm-openrc
 sddm-theme-artix
+steam
+sublime-text-4
 sudo
 sysfsutils
 systemsettings
@@ -176,7 +186,9 @@ tlp-openrc
 tlp-rdw
 tree
 ttf-droid
+ttf-firacode-nerd
 ttf-inconsolata
+ttf-jetbrains-mono-nerd
 ttf-liberation
 ttf-roboto
 ttf-roboto-mono
@@ -185,6 +197,9 @@ ufw-openrc
 usbutils
 vkd3d
 vlc
+vlc-plugin-ffmpeg
+vlc-plugin-x264
+vlc-plugin-x265
 vulkan-intel
 vulkan-radeon
 vulkan-swrast
@@ -213,4 +228,5 @@ xlibre-xserver
 xorg-xhost
 xorg-xinit
 xorg-xwayland
+yay
 zsh

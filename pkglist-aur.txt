@@ -1,2 +1,6 @@
 brave-bin
+game-devices-udev
+gamescope-session-git
+gamescope-session-steam-sk-git
+sublime-text-4
 yay

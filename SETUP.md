@@ -3,12 +3,22 @@
 ## 1. Install Artix: Plasma ISO
 This used Calamares, should be self-explanatory.
 
+Install Yay while at it:
+```fish
+sudo pacman -S --needed base-devel git
+cd Downloads
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+```
+Delete the `yay` folder after.
+
 ## 2. Clone repo
 Refer to [GIT-CMDS.md](GIT-CMDS.md) for relevant commands.
 
 ## 3. Install packages from pkglist
 Explicitly remove NTP and install chrony, cannot have both at the same time.
-```
+```fish
 pacman -Rns ntp ntp-openrc
 pacman -S chrony chrony-openrc
 ```
@@ -16,7 +26,7 @@ This can be done later, just skip chrony and refer to Section 5.
 
 ## 4. Configure Limine
 Once the package is installed, copy:
-```
+```fish
 cp /usr/share/limine/BOOTX64.EFI /boot/efi/EFI/limine/liminex64.efi
 ```
 Then replicate the folder structure and run `mkinitcpio-sync`.
@@ -24,7 +34,7 @@ Then replicate the folder structure and run `mkinitcpio-sync`.
 ## 5. Important Services (ufw, chrony, others)
 ### (1) Install: ufw, ufw-openrc
 #### Configure the rules
-```
+```fish
 sudo ufw default deny incoming
 sudo ufw default allow outgoing
 sudo ufw allow 80/tcp
@@ -34,7 +44,7 @@ sudo ufw enable
 ```
 
 #### Enable and start the service
-```
+```fish
 sudo rc-service ufw start
 sudo rc-update add ufw default
      rc-service ufw status
@@ -42,7 +52,7 @@ sudo rc-update add ufw default
 ```
 
 #### Config status check
-```
+```fish
 sudo ufw status verbose
 ```
 Output should look like this:
@@ -65,37 +75,37 @@ To                         Action      From
 ### (2) Install: chrony, chrony-openrc
 #### Ensure NTP is disabled and removed
 First, remove NTP:
-```
+```fish
 sudo rc-service ntpd stop
 sudo rc-update del ntpd default
 ```
 
 Confirm it's gone:
-```
+```fish
 rc-status | grep ntpd
 ps aux | grep ntpd
 ```
 
 Then install:
-```
+```fish
 sudo pacman -S chrony chrony-openrc
 ```
 
 #### Enable, start, sync
 Enable and start the service:
-```
+```fish
 sudo rc-update add chrony default
 sudo rc-service chrony start
 ```
 chrony’s config is in `/etc/chrony.conf`
 
 Initial sync:
-```
+```fish
 sudo chronyc makestep
 ```
 
 Lastly, check the status:
-```
+```fish
 chronyc tracking
 ```
 
