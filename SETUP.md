@@ -146,13 +146,28 @@ General settings, such as buttons and tabs:
 Profile settings, such as font and color:
 `.local/share/konsole/Profile1.profile`
 
-### (2) Brave Browser
+### (2) Brave Browser + KDE Wallet
 This only needs one file that saves the important preferences, including fonts:
 `.config/BraveSoftware/Brave-Browser/Default/Preferences`
+
+KDE Wallet is a good way to store passwords and keys.
+Having it unlock by default has been a tricky thing for me in the past.
+
+This is the way it works in Artix.
+Make sure `kwallet-pam` is installed.
+```fish
+sudo pacman -Ss kwallet-pam
+```
+Modity this file: `/etc/pam.d/system-login` as it is in the repo.
+Then go to KWalletManager and change the password of 'kdewallet' to match your login one.
+The name of the wallet is important. Chenge the password even if it's already the same.
+Logout and log back it. Brave should now load without asking for KWallet password.
 
 ### (3) Steam and Gamescope
 There is a whole file dedicated to this.
 See [STEAM.md](STEAM.md).
 Can be done at any time, once the core system and services are ready.
+
+
 
 ## 7. Future: TBD
