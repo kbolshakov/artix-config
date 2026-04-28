@@ -7,6 +7,15 @@ Target = linux-lts*
 Target = linux-zen*
 Target = mkinitcpio
 
+[Trigger]
+Type = Path
+Operation = Install
+Operation = Upgrade
+Operation = Remove
+Target = usr/lib/firmware/*
+Target = usr/lib/initcpio/*
+Target = usr/lib/modules/*/vmlinuz
+
 [Action]
 Description = Sync kernels to ESP for Limine boot
 When = PostTransaction

@@ -161,9 +161,23 @@ sudo pacman -Ss kwallet-pam
 Modity this file: `/etc/pam.d/system-login` as it is in the repo.
 Then go to KWalletManager and change the password of 'kdewallet' to match your login one.
 The name of the wallet is important. Chenge the password even if it's already the same.
-Logout and log back it. Brave should now load without asking for KWallet password.
+Logout and log back in. Brave should now load without asking for KWallet password.
 
-### (3) Steam and Gamescope
+### (3) Flatpak
+Install Flatpak:
+```fish
+sudo pacman -S flatpak
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+```
+
+Optionally, add KDE GUI for it:
+```fish
+sudo pacman -S discover  # slow, but native, may still be wirth keeping for fwupd
+sudo pacman -S bazaar    # Gnome-like (GTK), but modern and nice, must be installed through Pacman, not Flatpak!
+```
+Logout and log back in.
+
+### (4) Steam and Gamescope
 There is a whole file dedicated to this.
 See [STEAM.md](STEAM.md).
 Can be done at any time, once the core system and services are ready.
