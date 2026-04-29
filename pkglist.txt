@@ -15,9 +15,9 @@ b43-fwcutter
 base
 base-devel
 bat
+bazaar
 bluedevil
 bluez-openrc
-brave-bin
 breeze
 breeze-gtk
 btop
@@ -31,6 +31,7 @@ dbus-openrc
 dhclient
 dhcpcd-openrc
 diffutils
+discover
 dmraid
 dolphin
 dosfstools
@@ -47,10 +48,9 @@ fd
 ffmpegthumbs
 firefox
 fish
+flatpak
 fzf
-game-devices-udev
 gamescope
-gamescope-session-steam-sk-git
 git
 gst-libav
 gst-plugins-bad
@@ -64,6 +64,8 @@ intel-ucode
 inter-font
 inxi
 iptables
+iwd
+iwd-openrc
 jfsutils
 kactivitymanagerd
 kate
@@ -85,7 +87,6 @@ kscreen
 kscreenlocker
 ksshaskpass
 ksystemstats
-kwallet-pam
 kwalletmanager
 kwayland
 kwayland-integration
@@ -100,6 +101,7 @@ libmaxminddb
 libplasma
 librabbitmq-c
 librdkafka
+librewolf
 libva-intel-driver
 limine
 linux
@@ -174,7 +176,6 @@ sddm-kcm
 sddm-openrc
 sddm-theme-artix
 steam
-sublime-text-4
 sudo
 sysfsutils
 systemsettings
@@ -228,5 +229,4 @@ xlibre-xserver
 xorg-xhost
 xorg-xinit
 xorg-xwayland
-yay
 zsh

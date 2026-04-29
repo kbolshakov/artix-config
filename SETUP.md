@@ -155,6 +155,7 @@ rc-service iwd status
 iwctl station list
 ```
 
+Note that wpa_supplicant is a dependency of NetworkManager, so the package has to stay.
 Reboot. Ideally, twice: the 1st time it can take a bit longer. The 2nd time it should be faster.
 
 ### Check the rest (other)
