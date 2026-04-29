@@ -11,6 +11,7 @@
              bootmisc | boot                                   
               cgroups |                                 sysinit
                chrony |      default                           
+          consolefont | boot                                   
                cronie |      default                           
                 cupsd |      default                           
                  dbus |      default                           

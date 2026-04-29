@@ -14,11 +14,14 @@ makepkg -si
 Delete the `yay` folder.
 
 Configure Console font. For my 1440p, 22px looked as a good defatlt. When changing the font, it's best to keep it within ter-v* family. `n` is for "normal", `b` is for bold. `ter-v22b` is safe, 22px, bold font.
-Edit `/etc/vconsole.conf` to look like this:
+Optionally edit `/etc/conf.d/consolefont` (OpenRC specific) to modify the default:
 ```
-FONT=ter-v22b
-KEYMAP=us
+consolefont="ter-v22b"
 
+```
+For OpenRC, need to enable the service manually. Then reboot for it to take effect. This should remove the Pacman warning too.
+```bash
+sudo rc-update add consolefont boot
 ```
 
 ## 2. Clone repo
