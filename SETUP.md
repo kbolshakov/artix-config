@@ -3,7 +3,7 @@
 ## 1. Install Artix: Plasma ISO
 This used Calamares, should be self-explanatory.
 
-Install Yay while at it:
+Install Yay:
 ```bash
 sudo pacman -S --needed base-devel git
 cd Downloads
@@ -11,7 +11,15 @@ git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
 ```
-Delete the `yay` folder after.
+Delete the `yay` folder.
+
+Configure Console font. For my 1440p, 22px looked as a good defatlt. When changing the font, it's best to keep it within ter-v* family. `n` is for "normal", `b` is for bold. `ter-v22b` is safe, 22px, bold font.
+Edit `/etc/vconsole.conf` to look like this:
+```
+FONT=ter-v22b
+KEYMAP=us
+
+```
 
 ## 2. Clone repo
 Refer to [GIT-CMDS.md](GIT-CMDS.md) for relevant commands.
@@ -56,7 +64,7 @@ sudo rc-update add ufw default
 sudo ufw status verbose
 ```
 Output should look like this:
-```fish
+```
 Status: active
 Logging: on (low)
 Default: deny (incoming), allow (outgoing), disabled (routed)
@@ -110,7 +118,7 @@ chronyc tracking
 ```
 
 Ideally, we want to see 3 sources (Stratum) and a small offset. Example at the time of writing:
-```fish
+```
 Reference ID    : 8AC5A436 (xlrsecurity.com)
 Stratum         : 3
 Ref time (UTC)  : Mon Apr 27 23:22:36 2026
@@ -142,7 +150,7 @@ sudo rc-service iwd start
 ```
 
 Edit `/etc/NetworkManager/NetworkManager.conf` file to delegate wifi to `iwd`. There is likely nothing in that file except comments.
-```bash
+```
 [device]
 wifi.backend=iwd
 
