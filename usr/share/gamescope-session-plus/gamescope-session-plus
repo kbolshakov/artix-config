@@ -239,6 +239,13 @@ if [ -z "$GAMESCOPECMD" ]; then
 		HDR_OPTIONS="$HDR_OPTIONS --hdr-itm-sdr-nits $GAMESCOPE_HDR_NITS --hdr-sdr-content-nits $GAMESCOPE_HDR_NITS"
 	fi
 
+# Try this for RU keyboard support
+	export XKB_DEFAULT_LAYOUT="us,ru"
+	export XKB_DEFAULT_OPTIONS="grp:alt_shift_toggle"
+	# presumably for on-screen?
+	export XkbLayout="us,ru"
+	export XkbOptions="grp:alt_shift_toggle"
+
 # Process custom monitor/screen output config from tmp
   if [ -f /tmp/gamescope-usr-monitor ]; then
       . /tmp/gamescope-usr-monitor
@@ -369,13 +376,13 @@ if [[ -e "$REBOOT_SENTINEL" ]]; then
 	rm -f "$REBOOT_SENTINEL"
 	# rearm short session tracker
 	rm "$short_session_tracker_file"
-	reboot
+	loginctl reboot
 fi
 if [[ -e "$SHUTDOWN_SENTINEL" ]]; then
 	rm -f "$SHUTDOWN_SENTINEL"
 	# rearm short session tracker
 	rm "$short_session_tracker_file"
-	poweroff
+	loginctl poweroff
 fi
 
 # Wait for gamescope or the sleep to finish for timeout purposes

@@ -47,7 +47,7 @@ for i in {1..10}; do
     GPU_DEVICE=$(ls -1 /dev/dri/card* 2>/dev/null | head -1)
     
     if [ -n "$GPU_DEVICE" ] && [ -c "$GPU_DEVICE" ] && [ -r "$GPU_DEVICE" ] && [ -w "$GPU_DEVICE" ]; then
-        sleep 3  # Give driver time to fully initialize even after device appears
+        sleep 2  # Give driver time to fully initialize even after device appears
         echo "GPU/DRM device ready ($GPU_DEVICE), starting Gamescope..."
         break
     fi

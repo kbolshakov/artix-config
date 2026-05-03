@@ -19,6 +19,7 @@ dbus-update-activation-environment           DESKTOP_SESSION `env | grep ^XDG_ |
 export XDG_DESKTOP_PORTAL_DIR=""
 
 # Add explicit monitor for Gamescope; processed in /usr/share/gamescope-session-plus/gamescope-session-plus
+#echo "USR_MONITOR=DP-1" > /tmp/gamescope-usr-monitor
 echo "USR_MONITOR=HDMI-A-1" > /tmp/gamescope-usr-monitor
 
 # Remove these as they prevent gamescope-session-plus from starting correctly
@@ -46,7 +47,7 @@ for i in {1..10}; do
     GPU_DEVICE=$(ls -1 /dev/dri/card* 2>/dev/null | head -1)
     
     if [ -n "$GPU_DEVICE" ] && [ -c "$GPU_DEVICE" ] && [ -r "$GPU_DEVICE" ] && [ -w "$GPU_DEVICE" ]; then
-        sleep 3  # Give driver time to fully initialize even after device appears
+        sleep 2  # Give driver time to fully initialize even after device appears
         echo "GPU/DRM device ready ($GPU_DEVICE), starting Gamescope..."
         break
     fi
