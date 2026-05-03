@@ -9,6 +9,7 @@ artix-gtk-presets
 artix-icons
 artix-plasma-splash
 artix-qt-presets
+artix-sddm-theme
 artix-wallpapers
 avahi-openrc
 b43-fwcutter
@@ -136,6 +137,7 @@ net-snmp
 net-tools
 networkmanager-openrc
 nfs-utils-openrc
+noto-fonts-cjk
 ntfs-3g
 ocean-sound-theme
 okular
@@ -174,7 +176,6 @@ rsync-openrc
 s-nail
 sddm-kcm
 sddm-openrc
-sddm-theme-artix
 steam
 sudo
 sysfsutils
