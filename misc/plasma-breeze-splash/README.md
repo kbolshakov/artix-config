@@ -9,12 +9,11 @@ Just use `fd` once the package is installed.
 
 Preview logo:
 
-![plasma](https://github.com/kbolshakov/artix-config/misc/plasma-breeze-splash/.preview/plasma.svg)
-
+![plasma](.preview/plasma.svg)
 
 Preview spinner:
 
-![busywidget](https://github.com/kbolshakov/artix-config/misc/plasma-breeze-splash/images/busywidget.svgz)
+![busywidget](.preview/busywidget.svg)
 
 Lastly, the size is modified by a multiplyer of the 'logo' in `/usr/share/plasma/look-and-feel/org.kde.breeze.desktop/contents/splash/Splash.qml`.
 
