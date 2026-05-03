@@ -9,7 +9,8 @@ Just use `fd` once the package is installed.
 
 Preview logo:
 
-![plasma](https://github.com/kbolshakov/artix-config/misc/plasma-breeze-splash/images/plasma.svgz)
+![Alt text](plasma.svgz)
+
 
 Preview spinner:
 
