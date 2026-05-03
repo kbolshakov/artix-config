@@ -1,5 +1,5 @@
 # Add Arch Repos support
-```fish
+```bash
 sudo pacman -S artix-archlinux-support
 ```
 This will print:
@@ -24,22 +24,22 @@ Include = /etc/pacman.d/mirrorlist-arch
 ```
 
 Need to add these to pacman.conf manually. Then run:
-```fish
+```bash
 sudo pacman-key --populate archlinux
 ```
 
 May be a good idea to re-run reflector with new repos added:
-```fish
+```bash
 sudo reflector --sort rate --save /etc/pacman.d/mirrorlist
 ```
 
 After that, sync and update:
-```fish
+```bash
 sudo pacman -Syu
 ```
 
 ## Install Steam
-```fish
+```bash
 sudo pacman -S multilib/steam
 ```
 When prompted, the only choice needed should be `lib32-vulkan-radeon` for AMD GPU.
@@ -47,11 +47,11 @@ For others, read pacman descriptions and/or consult other resources.
 
 ## Add controller support
 Install udev:
-```fish
+```bash
 yay -S game-devices-udev
 ```
 Then reboot. After reboot, check:
-```fish
+```bash
 lsmod | grep uinput
 ll /dev/uinput
 ```
@@ -66,11 +66,11 @@ IMPORTANT NOTE: the controller layout only works in Gamescope!
 
 ## Install Gamescope
 The Gamescope package itself:
-```fish
+```bash
 sudo pacman -S world/gamescope
 ```
 Then, the Gamescope session from AUR. This is the one used in EOS setup, customized.
-```fish
+```bash
 yay -S aur/gamescope-session-steam-sk-git
 ```
 
