@@ -80,7 +80,7 @@ Located in:
 ```
 /usr/share/gamescope-session-plus/gamescope-session-plus
 ```
-Modify "USR_MONITOR" from `/tmp`.
+Modify "USR_MONITOR" from `/tmp`. Also modify reboot/poweroff to `loginctl reboot/poweroff` for elogind.
 
 ### Wrapper scripts
 This is what is called from .desktop session. We need 3 of them:
