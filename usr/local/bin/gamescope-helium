@@ -1,0 +1,6 @@
+#!/bin/bash
+
+XCURSOR_SIZE=64 /usr/bin/helium-browser --no-sandbox --force-device-scale-factor=1.8 --start-maximized "$@"
+
+# Replace the direct Helium command this file in Steam after adding Helium as a non-Steam game.
+# The controller layout was saved in Steam as "Helium-Gamepad"; should be able to restore it.

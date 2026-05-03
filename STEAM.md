@@ -57,6 +57,13 @@ ll /dev/uinput
 ```
 The controller was detected in Steam after that.
 
+### Optional - Big Picture Browser (Helium)
+Add Helium browser (or any other) as a non-SWteam game. For Helium, replace the default command with `/usr/local/bin/gamescope-helium`.
+
+To add the controller support, select custom (shareable) layout called "Helium-Gamepad".
+
+IMPORTANT NOTE: the controller layout only works in Gamescope!
+
 ## Install Gamescope
 The Gamescope package itself:
 ```fish
