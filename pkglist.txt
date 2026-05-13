@@ -19,6 +19,7 @@ bat
 bazaar
 bluedevil
 bluez-openrc
+bluez-utils
 breeze
 breeze-gtk
 btop
@@ -60,6 +61,7 @@ gst-plugins-ugly
 gwenview
 haveged-openrc
 hiredis
+htop
 inetutils
 intel-ucode
 inter-font
@@ -147,6 +149,7 @@ os-prober
 otf-firamono-nerd
 oxygen
 oxygen-sounds
+pacman-contrib
 pipewire-openrc
 pipewire-pulse
 pipewire-pulse-openrc
@@ -179,6 +182,7 @@ sddm-openrc
 steam
 sudo
 sysfsutils
+sysstat
 systemsettings
 terminus-font
 texinfo
@@ -186,6 +190,7 @@ tldr
 tlp
 tlp-openrc
 tlp-rdw
+transmission-qt
 tree
 ttf-droid
 ttf-firacode-nerd
