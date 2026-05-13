@@ -79,4 +79,10 @@ Once the repo is setup, `git push` is enough.
 git status
 git diff
 git log --oneline
+
+git pull --rebase  # for out-of-date repo, when a commit was pushed from another, and a change was started
+
+git fetch
+git log HEAD..origin/main --oneline  # view HEAD at GitHub side
+git log origin/main..HEAD --oneline  # view HEAD at local side
 ```
