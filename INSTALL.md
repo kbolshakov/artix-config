@@ -248,8 +248,11 @@ wifi.backend=iwd
 ```
 
 ```bash
+sudo rc-service iwd start
 sudo rc-service NetworkManager restart
 ```
+
+After that chrony, netmount (maybe something else) may be stopped and need a restart.
 
 
 ## 9. TLP (Power Management)

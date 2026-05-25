@@ -27,20 +27,34 @@ sudo rc-update add consolefont boot
 ## 2. Clone repo
 Refer to [GIT-CMDS.md](GIT-CMDS.md) for relevant commands.
 
-## 3. Install packages from pkglist
+## 3. Configure Limine
+Install `limine` package. UEFI setup is intentionally manual.
+
+Once the package is installed, copy:
+```bash
+cp /usr/share/limine/BOOTX64.EFI /boot/efi/EFI/limine/liminex64.efi
+```
+Then replicate the folder structure and run `mkinitcpio-sync`.
+Once all the structure is in place, register Limine with `efibootmgr`:
+```bash
+sudo efibootmgr --create --disk /dev/nvme0n1 --part 1 --loader "EFI/limine/liminex64.efi" --label "Artix Limine"
+```
+Reboot and test that it works. Typos or small things may cause the menu to be empty.
+Once it works, remove GRUB, then replave the fallback bootloader with Limine:
+```bash
+sudo pacman -Rs grub artix-grub-theme os-prober
+rm /boot/efi/EFI/boot/bootx64.efi    # need to be su for /boot/efi, use sudo -s
+cp /boot/efi/EFI/limine/liminex64.efi /boot/efi/EFI/boot/bootx64.efi
+rm -rf Artix; rm -rf grub
+```
+
+## 4. Install packages from pkglist
 Explicitly remove NTP and install chrony, cannot have both at the same time.
 ```bash
 pacman -Rns ntp ntp-openrc
 pacman -S chrony chrony-openrc
 ```
 This can be done later, just skip chrony and refer to Section 5.
-
-## 4. Configure Limine
-Once the package is installed, copy:
-```bash
-cp /usr/share/limine/BOOTX64.EFI /boot/efi/EFI/limine/liminex64.efi
-```
-Then replicate the folder structure and run `mkinitcpio-sync`.
 
 ## 5. Important Services (ufw, chrony, others)
 ### (1) Install: ufw, ufw-openrc
